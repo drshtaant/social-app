@@ -1,0 +1,87 @@
+<%- include("./partials/header")%>
+<%- include("./partials/navbar")%>
+
+        <div class="container">
+                <div class="row">
+                        <% if(success !=''){%>
+                            <div class="alert alert-success">
+                              <strong>Success!</strong> <%= success %>
+                            </div>
+                            <% } %>
+
+                            
+                            <h6></h6>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            
+                            
+                            <h6 class="display-6">My Info.</h6>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        
+
+                              <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaWN0dXJlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title nav-link active text-capitalize"> <strong> <%=currentUser.username%> </strong> </h5>
+                                  <p class="card-text"> <strong> <%=currentUser.email%> </strong> </p>
+                                  <a href="#" class="btn btn-primary">View More</a>
+
+
+                                  <div id="uploadfile" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <div class="panel-title"></div>
+                                             </div>  
+                                        <div class="panel-body" >
+                                            <form action="/upload" id="EmployeeForm" class="form-horizontal" method="post"  role="form" enctype="multipart/form-data">
+                                               
+                                                    
+                                                <div class="form-group">
+                                                    <label for="file" class="col-md-3 control-label"></label>
+                                                    <div class="col-md-9">
+                                                        <input type="file" class="form-control" name="file" required>
+                                                    </div>
+                                                </div>
+                                                
+                        
+                                                <div class="form-group">
+                                                    <!-- Button -->                                        
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                    <input type="submit" name="submit" value="Upload" class="btn btn-primary">   
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                            </form>
+                                         </div>
+                                    </div> 
+                         </div> 
+                            </div>
+                          </div>
+            
+                          <div class="container">
+                              <div class="row">
+                                  <%if (records.length >0){ %>
+                                    <% records.forEach(function(row){ %>
+                             <div class="col-md-4">
+                               <img src="./uploads/<%= row.imagename %>" alt="image" style="width:100%;margin:5px auto;">
+                             </div>
+                             <% }) }%>
+                                </div></div>
+                            
+                                </div>
+                              </div>
+
+                              <br>
+                              <br>
+<%- include("./partials/footer")%>
+             
